@@ -27,7 +27,7 @@ REDIS_HOST = env.str('REDIS_HOST', '127.0.0.1')
 # redis port
 REDIS_PORT = env.int('REDIS_PORT', 6379)
 # redis password, if no password, set it to None
-REDIS_PASSWORD = env.str('REDIS_PASSWORD', None)
+REDIS_PASSWORD = env.str('REDIS_PASSWORD', 'foobared')
 # redis db, if no choice, set it to 0
 REDIS_DB = env.int('REDIS_DB', 0)
 # redis connection string, like redis://[password]@host:port or rediss://[password]@host:port/0
