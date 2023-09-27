@@ -47,14 +47,17 @@ class Antispider6Generator(BaseCenerator):
             return
         login_url = 'https://antispider6.scrape.center/login'
         s = requests.Session()
-        s.post(login_url, data={
-            'username': username,
-            'password': password
-        })
-        result = []
-        for cookie in s.cookies:
-            print(cookie.name, cookie.value)
-            result.append(f'{cookie.name}={cookie.value}')
-        result = ';'.join(result)
-        logger.debug(f'get credential {result}')
-        self.credential_operator.set(username, result)
+        try:
+            s.post(login_url, data={
+                'username': username,
+                'password': password
+            })
+            result = []
+            for cookie in s.cookies:
+                print(cookie.name, cookie.value)
+                result.append(f'{cookie.name}={cookie.value}')
+            result = ';'.join(result)
+            logger.debug(f'get credential {result}')
+            self.credential_operator.set(username, result)
+        except Exception as e:
+            logger.error(e)
