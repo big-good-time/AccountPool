@@ -51,3 +51,5 @@ class Antispider6Tester(BaseTester):
                 self.credential_operatir.delete(username)
         except ConnectionError:
             logger.info('test failed')
+        except Exception as e:
+            logger.info(e)
