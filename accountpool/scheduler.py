@@ -38,7 +38,7 @@ class Scheduler(object):
             return
         
         # 获取generators下的GENERATOR_MAP['website']类，调用并传递website
-        generator = getattr(generators, GENERATOR_MAP['website'])(website)
+        generator = getattr(generators, GENERATOR_MAP[website])(website)
         loop = 0
         while True:
             logger.debug(f'getter loop {loop} start ...')
