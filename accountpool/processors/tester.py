@@ -51,5 +51,9 @@ class Antispider6Tester(BaseTester):
                 self.credential_operatir.delete(username)
         except ConnectionError:
             logger.info('test failed')
+            logger.info('credential is no valid, delete it')
+            self.credential_operatir.delete(username)
         except Exception as e:
             logger.info(e)
+            logger.info('credential is no valid, delete it')
+            self.credential_operatir.delete(username)
